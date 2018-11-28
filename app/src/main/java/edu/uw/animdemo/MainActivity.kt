@@ -43,8 +43,26 @@ class MainActivity : AppCompatActivity() {
         val x = event.x
         val y = event.y - supportActionBar!!.height //closer to center...
 
+        MotionEventCompat.getActionIndex(event)
+        MotionEventCompat.getPointerId(event, pointerIndex)
         val action = MotionEventCompat.getActionMasked(event)
         when (action) {
+            MotionEvent.ACTION_BUTTON_PRESS -> {
+                // Do Something
+                Log.v("Main", "It has pressed")
+                return false
+
+
+            }
+
+            MotionEvent.ACTION_BUTTON_RELEASE -> {
+                // Do something
+                Log.v("Main", "It has lifted")
+                return true
+
+
+            }
+
             MotionEvent.ACTION_DOWN //put finger down
             -> {
                 //Log.v(TAG, "finger down");
